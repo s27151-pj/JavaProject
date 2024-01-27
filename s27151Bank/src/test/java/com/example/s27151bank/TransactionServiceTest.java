@@ -37,9 +37,9 @@ class TransactionServiceTest {
 
     @Test
     void returnCustomerData() {
-    }
-
-    @Test
-    void bankAccountById() {
+        BankAccount bankAccount = new BankAccount(1, "Jan", 30);
+        bankAccountStorage.addBankAccount(bankAccount);
+        String result = transactionService.returnCustomerData(1);
+        assertThat(result).isEqualTo("ID: 1 AccountName: Jan Balance 30.0");
     }
 }
